@@ -25,38 +25,39 @@ class SignIn extends React.Component {
 
     handleChange = event => {
         const { value, name } = event.target;
-        this.setState({ [name]: value })
+
+        this.setState({ [name]: value });
     };
 
     render() {
         return (
-            <div className="sign-in">
-                <h2>I have already an account !</h2>
-                <span>Sign with your email and password.</span>
-                <form onSubmit={this.handleSubmit} >
+            <div className='sign-in'>
+                <h2>I already have an account</h2>
+                <span>Sign in with your email and password</span>
+
+                <form onSubmit={this.handleSubmit}>
                     <FormInput
-                        label='Email'
                         name='email'
                         type='email'
                         handleChange={this.handleChange}
                         value={this.state.email}
-                        required />
-
+                        label='email'
+                        required
+                    />
                     <FormInput
                         name='password'
                         type='password'
-                        handleChange={this.handleChange}
-                        label='Password'
                         value={this.state.password}
-                        required />
-                    <buttons className='buttons'>
-                        <CustomButton type='submit'>Sign In</CustomButton>
+                        handleChange={this.handleChange}
+                        label='password'
+                        required
+                    />
+                    <div className='buttons'>
+                        <CustomButton type='submit'> Sign in </CustomButton>
                         <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-                            {' '}
                             Sign in Google
-                            {' '}
                         </CustomButton>
-                    </buttons>
+                    </div>
                 </form>
             </div>
         );
